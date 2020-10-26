@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>
+            Abstraction at its Finest
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+        <script>
+            var x = 100;
+            var y = 190;
+            var diameter = 30;
+
+            var rectX = 150;
+            var rectY = 270;
+            var leftrectX = 0;
+            var w = 60;
+            var h = 10;
+
+            var shoeX= 25;
+            var shoeX2 = 135;
+            var shoeY= 455;
+            var width = 40;
+            var height = 20;
+
+            var movement;
+            function setup()
+            {
+                createCanvas(300,500);
+                movement = Math.floor(Math.random() *10) + 1;
+            }
+            function draw()
+            {
+                background(100);
+               
+        // mouth
+        strokeWeight(10);
+        fill(10);
+        circle(x,y,diameter);
+        circle(x,y,30);
+        if(x >= 300 || x <= 0)
+        {
+            movement *= -1;
+        }
+           x += movement;
+
+        // right arm
+        fill(10, 24, 120);
+        rect(rectX,rectY,w,h);
+        rect(rectX,rectY,60,10);
+        if(rectY <= 0 || rectY >= 500)
+        {
+            movement *= -1;
+        }
+        rectY += movement;
+
+          // left arm
+          fill(10, 24, 120);
+          rect(leftrectX,rectY,w,h);
+          rect(leftrectX,rectY,40,10);
+          if(rectY <= 0 || rectY >= 500)
+          {
+              movement *=-1;
+          }
+          rectY += movement;
+
+                  //left shoe
+        strokeWeight(0);
+        fill(102,0,102);
+        rect(shoeX,shoeY,width,height);
+        rect(shoeX,shoeY,40,20);
+        if(shoeX >= 300 || shoeX <= 0)
+        {
+            movement *= -1;
+        }
+        shoeX += movement;
+
+
+        //right shoe
+        strokeWeight(0);
+        fill(102,0,102);
+        rect(shoeX2,shoeY,width,height);
+        rect(shoeX2,ShoeY,40,20);
+        if(shoeX2 >= 300 || shoeX2 <= 0)
+        {
+            movement *= -1;
+        }
+        shoeX2 += movement;
+
+            }
+           
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+   
+</html>
