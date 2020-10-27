@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>
+            Abstraction at its Finest
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+        <script>
+    var rarmY = 270;
+    var armDirection = 21;
+    
+    var x = 100;
+    var y = 200;
+    var diameter = 50;
+
+    var size = 28;
+    var count = 0;
+    var sizeDirection= 5;
+
+    var mouthX = 100;
+    var mouthY= 190;
+    var mouthDirection= 1;
+
+    var shoeX = 25;
+    var shoeY = 135;
+    var shoeDirection = 1;
+    
+    var movement;
+            function setup()
+            {
+                createCanvas(300,500);
+            }
+            function draw()
+            {
+                background(100);
+               
+            // head
+            strokeWeight(5);
+            fill(172, 131, 91);
+            ellipse(100,150,175,200);
+           
+            // eyes
+            strokeWeight(10);
+            fill(0);
+            point(70,125);
+            point(120,125);
+        
+            // hair
+            strokeWeight(5);
+            fill(110,72,35);
+            triangle(100,40,30,70,10,170);
+            triangle(140,48,170,50,200,200);
+            triangle(150,50,200,150,200,120);
+            triangle(10,225,20,60,55,45);
+            triangle(20,100,60,55,150,50);
+
+            // mole
+            strokeWeight(2);
+            point(105,135);
+
+            // mouth
+            strokeWeight(10);
+            fill(10);
+            circle(mouthX, mouthY, 30);
+            mouthX+=mouthDirection;
+            if(mouthX >= 100 || mouthX <= 0)
+            {
+                mouthDirection *= -1;
+            }
+            mouthY+=mouthDirection
+            if(mouthY >= 190 || mouthY <= 150)
+            {
+                mouthDirection *= -1;
+            }
+
+            // nose
+            line(95,150,95,130);
+
+            // body
+            fill(90, 74, 97);
+            rect(50,255,100,150);
+            
+            // right arm
+            fill(10, 24, 120);
+            rect(150,rarmY,60,10);
+            rarmY += armDirection;
+            if(rarmY >= 500 || rarmY <= 0)
+            {
+                armDirection *= -1;
+            }
+            // left arm
+            rect(0,rarmY,40,10);
+            rarmY += armDirection;
+            if(rarmY >= 500 || rarmY <= 0)
+            {
+                armDirection *= -1;
+            }
+            // left leg
+            rect(50,415,10,50);
+            // right leg
+            rect(140,415,10,50);
+
+            //shoes
+            strokeWeight(0);
+            fill(102,0,102);
+            rect(shoeX,455,40,20);
+            shoeX+=shoeDirection;
+            if(shoeX >= 300 || shoeX <= 0)
+            {
+                shoeDirection *= -1;
+            }
+            rect(shoeY,455,40,20);
+            shoeY+= shoeDirection;
+            if(shoeY >= 300 || shoeY <= 0)
+            {
+                shoeDirection *= -1;
+            }
+
+            //title
+            fill(221,190,222);
+            textSize(size);
+            size+= sizeDirection;
+            count++;
+            if(count > 5)
+            {
+                sizeDirection *=-1
+                count = 0;
+            }
+            text("Abstraction at its Finest",5,30)
+
+            //signature
+            fill(221,190,222);
+            textSize(22);
+            text("Paige Childers",150,490);
+            }
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+   
+</html>
