@@ -1,0 +1,203 @@
+<html>
+    <head>
+        <title>
+            Color Change?
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            var x = 100;
+            var y = 190;
+            var diameter = 30;
+
+            var rectX = 150;
+            var rectY = 270;
+            var leftrectX = 0;
+            var w = 60;
+            var h = 10;
+
+            var size = 28;
+            var count = 0;
+            var sizeDirection= 5;
+
+            var mouthX = 100;
+            var mouthY= 190;
+            var mouthDirection= 1;
+
+            var legX = 50;
+            var legY = 415;
+            var legZ = 140
+            var width = 10;
+            var height = 50;
+            var movement;
+
+            //color code...
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            function getRandomColor() {
+
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+            }
+
+            function setRandomColor() {
+            $("#colorpad").css("background-color", getRandomColor());
+            }
+
+            function setup()
+            {
+                createCanvas(300,500);
+                movement = Math.floor(Math.random() *10) + 1;
+            }
+            function draw()
+            {
+                background(100);
+               
+
+            // right arm
+            fill(10, 24, 120);
+            rect(rectX,rectY,w,h);
+            rect(rectX,rectY,60,10);
+            if(rectY <= 0 || rectY >= 500)
+            {
+            movement *= -1;
+            }
+            rectY += movement;
+
+            // left arm
+            fill(10, 24, 120);
+            rect(leftrectX,rectY,w,h);
+            rect(leftrectX,rectY,40,10);
+            if(rectY <= 0 || rectY >= 500)
+            {
+              movement *=-1;
+              color = get_random_color
+            }
+            rectY += movement;
+                         
+            // head
+            strokeWeight(5);
+            fill(172, 131, 91);
+            ellipse(100,150,175,200);
+           
+            // eyes
+            strokeWeight(10);
+            fill(0);
+            point(70,125);
+            point(120,125);
+        
+            // hair
+            strokeWeight(5);
+            fill(110,72,35);
+            triangle(100,40,30,70,10,170);
+            triangle(140,48,170,50,200,200);
+            triangle(150,50,200,150,200,120);
+            triangle(10,225,20,60,55,45);
+            triangle(20,100,60,55,150,50);
+
+            // mole
+            strokeWeight(2);
+            point(105,135);
+
+            // mouth
+            strokeWeight(10);
+            fill(10);
+            circle(mouthX, mouthY, 30);
+            mouthX+=mouthDirection;
+            if(mouthX >= 100 || mouthX <= 0)
+            {
+                mouthDirection *= -1;
+            }
+            mouthY+=mouthDirection
+            if(mouthY >= 190 || mouthY <= 150)
+            {
+                mouthDirection *= -1;
+            }
+
+            // nose
+            line(95,150,95,130);
+
+            // body
+            fill(90, 74, 97);
+            rect(50,255,100,150);
+
+            // right leg
+            fill(10);
+            rect(legX,legY,5,50);
+            if(legX <= 0 || legX >= 500)
+            {
+                movement *= -1;
+            }
+             legX += movement;
+
+             //left leg
+             fill(10);
+             rect(legZ,legY,5,50);
+             if(legZ <= 0 || legZ >= 500)
+             {
+                 movement *= -1;
+             }
+             legZ += movement;
+
+            //title
+            fill(221,190,222);
+            textSize(size);
+            size+= sizeDirection;
+            count++;
+            if(count > 5)
+            {
+                sizeDirection *=-1
+                count = 0;
+            }
+            text("Abstraction at its Finest",5,30)
+            
+            fill(221,190,222);
+            textSize(22);
+            text("Paige Childers",150,490);
+            }
+           
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+   
+
+<!--
+function get_random_color()
+{
+    var letters = 'ABCDE'.split('');
+    var color = '#';
+    for (var i=0; i<3; i++ ) {
+     color += letters[Math.floor(Math.random() * letters.length)];
+     }
+    return color;
+    }
+  
+    function rainbow(numOfSteps, step) {
+        // This function generates vibrant, "evenly spaced" colours (i.e. no clustering). This is ideal for creating easily distinguishable vibrant markers in Google Maps and other apps.
+        // Adam Cole, 2011-Sept-14
+        // HSV to RBG adapted from: http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript
+        var r, g, b;
+        var h = step / numOfSteps;
+        var i = ~~(h * 6);
+        var f = h * 6 - i;
+        var q = 1 - f;
+        switch(i % 6){
+            case 0: r = 1; g = f; b = 0; break;
+            case 1: r = q; g = 1; b = 0; break;
+            case 2: r = 0; g = 1; b = f; break;
+            case 3: r = 0; g = q; b = 1; break;
+            case 4: r = f; g = 0; b = 1; break;
+            case 5: r = 1; g = 0; b = q; break;
+        }
+        var c = "#" + ("00" + (~ ~(r * 255)).toString(16)).slice(-2) + ("00" + (~ ~(g * 255)).toString(16)).slice(-2) + ("00" + (~ ~(b * 255)).toString(16)).slice(-2);
+        return (c);
+    }
+-->
+
+    </html>
+
